@@ -4,6 +4,7 @@ const initialState = {
 	cart: [],
 	quantity: 0,
 	totalPrice: 0,
+	referenceOtp: null,
 };
 
 const actions = createSlice({
@@ -35,9 +36,13 @@ const actions = createSlice({
 			state.quantity -= 1;
 			state.totalPrice -= payload.price;
 		},
+
+		shootOTP: (state, { payload }) => {
+			state.referenceOtp = payload;
+		},
 	},
 });
 
-export const { addToCart, removeCart } = actions.actions;
+export const { addToCart, removeCart, shootOTP } = actions.actions;
 
 export default actions.reducer;

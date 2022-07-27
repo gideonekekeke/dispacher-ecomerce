@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { addToCart, removeCart } from "../Global/actions";
+import PaymentPage from "./PaymentPage";
 
 const CartPage = () => {
 	const cartData = useSelector((state) => state.myReducer.cart);
@@ -78,7 +79,7 @@ const CartPage = () => {
 					<div>{cartDataQuantity}</div>
 					<h3>Total Price</h3>
 					<div>#{cartDataPrice}</div>
-					<button>Checkout</button>
+					<PaymentPage />
 				</Second>
 			</Holder>
 		</Container>

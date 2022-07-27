@@ -51,7 +51,40 @@ const getAllOrders = async (req, res) => {
 	}
 };
 
+const updateDone = async (req, res) => {
+	try {
+		const editStatus = await orderModel.findByIdAndUpdate(
+			req.params.id,
+			{
+				activate: true,
+			},
+			{ new: true },
+		);
+
+		res.status(200).json(editStatus);
+	} catch (err) {
+		res.status(404).json({ message: "an error occured" });
+	}
+};
+const updateMainDone = async (req, res) => {
+	try {
+		const editStatus = await orderModel.findByIdAndUpdate(
+			req.params.id,
+			{
+				done: true,
+			},
+			{ new: true },
+		);
+
+		res.status(200).json(editStatus);
+	} catch (err) {
+		res.status(404).json({ message: "an error occured" });
+	}
+};
+
 module.exports = {
 	getAllOrders,
 	checkoutProduct,
+	updateDone,
+	updateMainDone,
 };
